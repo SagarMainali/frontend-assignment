@@ -2,7 +2,7 @@
 export function Home() {
      return (
           <div>
-               Home
+               -Produts should be listed here-
           </div>
      )
 }

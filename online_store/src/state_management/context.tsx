@@ -1,8 +1,10 @@
-import { createContext, useContext, useState } from 'react'
-import { ChildrenType } from '../types/type'
+import { createContext, useContext, useState, useEffect } from 'react'
+import { ChildrenType, ProductType } from '../types/type'
+import { useQuery } from '@tanstack/react-query'
+import { getDataFromApi } from '../Utils/api'
+import axios from 'axios'
 
-// creating context
-export const GlobalContext = createContext({})
+const GlobalContext = createContext({})
 
 // custom hook for context consumption
 export const useGlobalContext = () => {
@@ -11,10 +13,20 @@ export const useGlobalContext = () => {
 
 export const GlobalContextProvider = ({ children }: ChildrenType) => {
 
-     return (
-          <GlobalContext.Provider value={{}}>
-               {children}
-          </GlobalContext.Provider >
-     )
+     const [products, setProducts] = useState<ProductType[]>()
 
+     const { data, isLoading, error } = useQuery({
+          queryFn: () => {
+               const data = getDataFromApi('')
+               return data
+          }
+     })
+
+     console.log(data)
+
+     return (
+          <GlobalContext.Provider value={{ products, setProducts }}>
+               {children}
+          </GlobalContext.Provider>
+     )
 }

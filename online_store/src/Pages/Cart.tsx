@@ -1,6 +1,8 @@
 
 export function Cart() {
      return (
-          <div>Cart Page</div>
+          <div>
+               -products added in cart should be listed here-
+          </div>
      )
 }
