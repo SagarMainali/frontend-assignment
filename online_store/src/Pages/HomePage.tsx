@@ -4,7 +4,7 @@ import { LoadingHandler } from "../StateHandelers/LoadingHandler"
 import { useGlobalContext } from "../StateManagement/context"
 import { ProductType } from "../Types/type"
 
-export function Home() {
+export function HomePage() {
 
      const { data, isLoading, error } = useGlobalContext()
 

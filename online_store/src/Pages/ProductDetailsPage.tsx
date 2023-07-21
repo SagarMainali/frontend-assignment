@@ -4,7 +4,7 @@ import { LoadingHandler } from "../StateHandelers/LoadingHandler"
 import { ErrorHandler } from "../StateHandelers/ErrorHandler"
 
 
-export function ProductDetails() {
+export function ProductDetailsPage() {
 
      const { id } = useParams()
 
