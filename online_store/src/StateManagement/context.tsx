@@ -48,12 +48,24 @@ export const GlobalContextProvider = ({ children }: ChildrenType) => {
                })
      }
 
+     function removeFromCart(id: number): void {
+          setProductsInCart(
+               (currentProductsInCart: ProductType[]) => {
+                    return currentProductsInCart.filter(
+                         (currentProductInCart: ProductType) => {
+                              currentProductInCart.id === id
+                         }
+                    )
+               }
+          )
+     }
+
      function clearCart(): void {
           setProductsInCart([])
      }
 
      return (
-          <GlobalContext.Provider value={{ data, isLoading, error, productsInCart, addToCart, clearCart }}>
+          <GlobalContext.Provider value={{ data, isLoading, error, productsInCart, addToCart, removeFromCart, clearCart }}>
                {children}
           </GlobalContext.Provider>
      )
