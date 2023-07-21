@@ -27,5 +27,6 @@ export type GlobalContextType = {
      productsInCart: ProductType[],
      addToCart: (productToAdd: ProductType) => void,
      removeFromCart: (id: number) => void,
+     changeCartQuantity: (id: number, action: string) => void,
      clearCart: () => void
 }

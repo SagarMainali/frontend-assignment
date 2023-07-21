@@ -24,7 +24,7 @@ export function CartPage() {
                {
                     productsInCart.length
                          ? productsInCart.map((productInCart: ProductType) => {
-                              return <ProductInCart {...productInCart} />
+                              return <ProductInCart key={productInCart.id} {...productInCart} />
                          })
                          : <h2>You have not added any products to cart yet. 🛒</h2>
                }

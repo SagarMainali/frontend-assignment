@@ -15,7 +15,7 @@ export const GlobalContextProvider = ({ children }: ChildrenType) => {
 
      const [productsInCart, setProductsInCart] = useState<ProductType[]>([])
 
-     function addToCart(productToAdd: ProductType): void {
+     const addToCart = (productToAdd: ProductType): void => {
           setProductsInCart(
                (currentProductsIncart: ProductType[]) => {
                     let matchFound: boolean = false
@@ -48,7 +48,7 @@ export const GlobalContextProvider = ({ children }: ChildrenType) => {
                })
      }
 
-     function removeFromCart(id: number): void {
+     const removeFromCart = (id: number): void => {
           setProductsInCart(
                (currentProductsInCart: ProductType[]) => {
                     return currentProductsInCart.filter(
@@ -60,12 +60,47 @@ export const GlobalContextProvider = ({ children }: ChildrenType) => {
           )
      }
 
-     function clearCart(): void {
+     const changeCartQuantity = (id: number, action: string): void => {
+          setProductsInCart(
+               (currentProductsIncart: ProductType[]) => {
+                    const updatedData = currentProductsIncart.map(
+                         (currentProductInCart: ProductType) => {
+                              // increase or decrease the cartQuantity based on 'action'
+                              if (currentProductInCart.id === id) {
+                                   if (action === 'increment') {
+                                        return {
+                                             ...currentProductInCart,
+                                             cartQuantity: currentProductInCart.cartQuantity + 1
+                                        }
+                                   }
+                                   else {
+                                        return {
+                                             ...currentProductInCart,
+                                             cartQuantity: currentProductInCart.cartQuantity - 1
+                                        }
+                                   }
+                              }
+                              else {
+                                   return currentProductInCart
+                              }
+                         }
+                    )
+                    // finally filter the updated data and only put those whose 'cartQuantity' is atleast 1
+                    return updatedData.filter(
+                         (productWithChangedQuantity: ProductType) => {
+                              return productWithChangedQuantity.cartQuantity !== 0
+                         }
+                    )
+               }
+          )
+     }
+
+     const clearCart = (): void => {
           setProductsInCart([])
      }
 
      return (
-          <GlobalContext.Provider value={{ data, isLoading, error, productsInCart, addToCart, removeFromCart, clearCart }}>
+          <GlobalContext.Provider value={{ data, isLoading, error, productsInCart, addToCart, removeFromCart, changeCartQuantity, clearCart }}>
                {children}
           </GlobalContext.Provider>
      )

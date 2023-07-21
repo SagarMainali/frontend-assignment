@@ -3,8 +3,6 @@ import { ProductType } from "../Types/type"
 
 export function ProductInDetailsPage(props: ProductType) {
 
-     console.log(props)
-
      const { addToCart } = useGlobalContext()
 
      return (
