@@ -10,7 +10,7 @@ import { GlobalContextProvider } from './StateManagement/context'
 export default function App() {
 
   return (
-    <div className='max-w-[1500px] mx-auto'>
+    <div className='max-w-[1500px] mx-auto py-2'>
       <QueryClientWrapper>
         <GlobalContextProvider>
           <Routes>

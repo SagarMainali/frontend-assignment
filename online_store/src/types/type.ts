@@ -8,7 +8,9 @@ export type ProductType = {
      id: number,
      image: string,
      title: string,
-     rating: { rate: number },
+     rating: {
+          rate: number
+     },
      rate: number,
      price: number,
      category: string,
