@@ -23,5 +23,7 @@ export type ProductType = {
 export type GlobalContextType = {
      data: ProductType[] | undefined,
      isLoading: boolean,
-     error: unknown
+     error: unknown,
+     addToCart: (productToAdd: ProductType) => void,
+     productsInCart: ProductType[]
 }
