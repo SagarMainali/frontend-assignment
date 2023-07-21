@@ -1,6 +1,14 @@
 import { ProductType } from "../Types/type";
+import { useNavigate } from "react-router-dom";
 
 export default function Product(props: ProductType) {
+
+     const navigate = useNavigate()
+
+     function viewDetailsPage(id: number) {
+          navigate(id.toString())
+     }
+
      return (
           <div className="relative py-4 px-4 border-2 border-slate-200 text-primary-dark rounded-md flex flex-col gap-2 text-[15px]">
                <div className="w-full group">
@@ -18,7 +26,7 @@ export default function Product(props: ProductType) {
                          </h2>
                          <h2 className="font-medium">${props.price}</h2>
                     </div>
-                    <button className="w-full h-[40px] font-medium rounded-md text-slate-100 bg-logo-inherit hover:bg-[rgb(49,161,189)] hover:scale-[.97] duration-300">View Details</button>
+                    <button onClick={() => viewDetailsPage(props.id)} className="w-full h-[40px] font-medium rounded-md text-slate-100 bg-logo-inherit hover:bg-[rgb(49,161,189)] hover:scale-[.97] duration-300">View Details</button>
                </div>
           </div>
      )

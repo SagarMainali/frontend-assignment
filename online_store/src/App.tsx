@@ -18,7 +18,7 @@ export default function App() {
               <Route index element={<Home />} />
               <Route path=':id' element={<ProductDetails />} />
               <Route path='cart' element={<Cart />} />
-              <Route path='*' element={ <InvalidUrlPage />} />
+              <Route path='*' element={<InvalidUrlPage />} />
             </Route>
           </Routes>
         </GlobalContextProvider>
