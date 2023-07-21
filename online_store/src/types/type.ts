@@ -9,7 +9,8 @@ export type ProductType = {
      image: string,
      title: string,
      rating: {
-          rate: number
+          rate: number,
+          count: number
      },
      rate: number,
      price: number,

@@ -1,4 +1,4 @@
-import Product from "../Components/Product"
+import ProductInHomePage from "../Components/ProductInHomePage"
 import { ErrorHandler } from "../StateHandelers/ErrorHandler"
 import { LoadingHandler } from "../StateHandelers/LoadingHandler"
 import { useGlobalContext } from "../StateManagement/context"
@@ -19,7 +19,7 @@ export function HomePage() {
                                    {
                                         data?.map((product: ProductType) => {
                                              return (
-                                                  <Product key={product.id} {...product} />
+                                                  <ProductInHomePage key={product.id} {...product} />
                                              )
                                         })
                                    }

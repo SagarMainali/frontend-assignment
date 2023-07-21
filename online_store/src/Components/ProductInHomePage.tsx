@@ -1,7 +1,7 @@
 import { ProductType } from "../Types/type";
 import { useNavigate } from "react-router-dom";
 
-export default function Product(props: ProductType) {
+export default function ProductInHomePage(props: ProductType) {
 
      const navigate = useNavigate()
 
