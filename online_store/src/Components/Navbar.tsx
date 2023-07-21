@@ -1,9 +1,30 @@
 import { NavLink } from 'react-router-dom'
 import { useGlobalContext } from '../StateManagement/context'
+import { ProductType } from '../Types/type'
 
 export function Navbar() {
 
   const { productsInCart } = useGlobalContext()
+
+  function getNumberOfProductsInCart() {
+
+    if (productsInCart.length !== 0) {
+      const productQuantities = productsInCart.map(
+        (productInCart: ProductType) => {
+          return productInCart.cartQuantity
+        }
+      )
+      return productQuantities.reduce(getSum)
+    }
+
+    else {
+      return 0
+    }
+  }
+
+  function getSum(total: number, num: number) {
+    return total + num
+  }
 
   return (
     <div className='flex justify-between items-center p-3 bg-slate-200 rounded-md'>
@@ -26,10 +47,11 @@ export function Navbar() {
 
         {/* cart page navigation */}
         <NavLink to='/cart'>
-          <div className='border-2 border-primary-dark p-2 rounded-full'>
-            <svg xmlns="http://www.w3.org/2000/svg" height="1.5rem" viewBox="0 0 576 512" fill='#001C30'>
+          <div className='border-[3px] border-logo-inherit p-3 rounded-full relative'>
+            <svg xmlns="http://www.w3.org/2000/svg" height="1.3rem" viewBox="0 0 576 512" fill='#001C30'>
               <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
             </svg>
+            <span className='absolute -bottom-[8px] -right-[5px] bg-logo-inherit rounded-full h-[1.4rem] w-[1.4rem] flex justify-center items-center text-slate-100'>{getNumberOfProductsInCart()}</span>
           </div>
         </NavLink>
       </div>
