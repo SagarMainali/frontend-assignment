@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ChildrenType } from '../types/type'
+import { ChildrenType } from '../Types/type'
 
 const queryClient = new QueryClient()
 

@@ -3,8 +3,9 @@ import { Layout } from './Components/Layout'
 import { ProductDetails } from './Pages/ProductDetails'
 import { Cart } from './Pages/Cart'
 import { Home } from './Pages/Home'
-import { QueryClientWrapper } from './Special_Components/QueryClientWrapper'
-import { GlobalContextProvider } from './State_Management/context'
+import { InvalidUrlPage } from './Pages/InvalidUrlPage'
+import { QueryClientWrapper } from './SpecialComponents/QueryClientWrapper'
+import { GlobalContextProvider } from './StateManagement/context'
 
 export default function App() {
 
@@ -17,6 +18,7 @@ export default function App() {
               <Route index element={<Home />} />
               <Route path=':id' element={<ProductDetails />} />
               <Route path='cart' element={<Cart />} />
+              <Route path='*' element={ <InvalidUrlPage />} />
             </Route>
           </Routes>
         </GlobalContextProvider>
