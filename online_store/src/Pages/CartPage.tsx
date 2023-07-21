@@ -10,7 +10,7 @@ export function CartPage() {
           <div>
                {
                     productsInCart.map(product => {
-                         return <h2>{product.title}</h2>
+                         return <h2>{product.title} - {product.cartQuantity}</h2>
                     })
                }
           </div>

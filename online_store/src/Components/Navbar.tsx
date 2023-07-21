@@ -1,6 +1,10 @@
 import { NavLink } from 'react-router-dom'
+import { useGlobalContext } from '../StateManagement/context'
 
 export function Navbar() {
+
+  const { productsInCart } = useGlobalContext()
+
   return (
     <div className='flex justify-between items-center p-3 bg-slate-200 rounded-md'>
 

@@ -16,24 +16,36 @@ export const GlobalContextProvider = ({ children }: ChildrenType) => {
      const [productsInCart, setProductsInCart] = useState<ProductType[]>([])
 
      function addToCart(productToAdd: ProductType) {
-          // setProductsInCart(
-          //      (currentProductsIncart: ProductType[]) => {
-          //           let productMatch: boolean = false
-          //           const testData = currentProductsIncart.filter((currentProductIncart: ProductType) => {
-          //                currentProductIncart.id === id
-          //                productMatch = true
-          //           })
-          //           if (productMatch) {
-          //                return testData
-          //           }
-          //           else {
-          //                const productToAdd = data.filter((product: ProductType) => {
-          //                     product.id === id
-          //                })
-          //                return productToAdd
-          //           }
-          //      })
-          // console.log(productsToAddInCart)
+          setProductsInCart(
+               (currentProductsIncart: ProductType[]) => {
+                    let matchFound: boolean = false
+                    const updatedData = currentProductsIncart.map(
+                         (currentProductInCart: ProductType) => {
+                              if (currentProductInCart.id === productToAdd.id) {
+                                   matchFound = true
+                                   // change the cart quantity of the product 
+                                   return {
+                                        ...currentProductInCart,
+                                        cartQuantity: currentProductInCart.cartQuantity + 1
+                                   }
+                              }
+                              else {
+                                   // if there is no product in cart that matches the product to be added, then don't modify the existing products in cart
+                                   return currentProductInCart
+                              }
+                         })
+                    if (matchFound) {
+                         // return the data where only cartQuantity was changed rather than adding it to avoid duplication
+                         return updatedData
+                    }
+                    else {
+                         // if there is no product in cart that matches the product to be added, then simply add the new data to the cart
+                         return [...currentProductsIncart, {
+                              ...productToAdd,
+                              cartQuantity: productToAdd.cartQuantity + 1
+                         }]
+                    }
+               })
      }
 
      return (
