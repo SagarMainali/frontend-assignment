@@ -15,7 +15,7 @@ export const GlobalContextProvider = ({ children }: ChildrenType) => {
 
      const [productsInCart, setProductsInCart] = useState<ProductType[]>([])
 
-     function addToCart(productToAdd: ProductType) {
+     function addToCart(productToAdd: ProductType): void {
           setProductsInCart(
                (currentProductsIncart: ProductType[]) => {
                     let matchFound: boolean = false
@@ -48,8 +48,12 @@ export const GlobalContextProvider = ({ children }: ChildrenType) => {
                })
      }
 
+     function clearCart(): void {
+          setProductsInCart([])
+     }
+
      return (
-          <GlobalContext.Provider value={{ data, isLoading, error, addToCart, productsInCart }}>
+          <GlobalContext.Provider value={{ data, isLoading, error, productsInCart, addToCart, clearCart }}>
                {children}
           </GlobalContext.Provider>
      )

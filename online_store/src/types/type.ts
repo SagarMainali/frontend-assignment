@@ -25,5 +25,6 @@ export type GlobalContextType = {
      isLoading: boolean,
      error: unknown,
      addToCart: (productToAdd: ProductType) => void,
-     productsInCart: ProductType[]
+     productsInCart: ProductType[],
+     clearCart: () => void
 }
