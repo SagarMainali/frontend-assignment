@@ -1,8 +1,6 @@
-import { createContext, useContext, useState, useEffect } from 'react'
+import { createContext, useContext, useState } from 'react'
 import { ChildrenType, ProductType } from '../types/type'
-import { useQuery } from '@tanstack/react-query'
-import { getDataFromApi } from '../Utils/api'
-import axios from 'axios'
+import { useApiWithReactQuery } from '../Utils/useApiWithReactQuery'
 
 const GlobalContext = createContext({})
 
@@ -15,12 +13,7 @@ export const GlobalContextProvider = ({ children }: ChildrenType) => {
 
      const [products, setProducts] = useState<ProductType[]>()
 
-     const { data, isLoading, error } = useQuery({
-          queryFn: () => {
-               const data = getDataFromApi('')
-               return data
-          }
-     })
+     const { data, isLoading, isError } = useApiWithReactQuery()
 
      console.log(data)
 
