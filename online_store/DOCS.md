@@ -4,6 +4,11 @@
 This repo contains the project that I build as a frontend assignment. The project is an online store made using React Js with typescript.
 
 
+## See live Demo
+
+https://sagar-mainali-online-store.netlify.app/
+
+
 ## Speciality
 
 - Visually appealing UI
@@ -63,4 +68,3 @@ Start the server
 ```bash
   npm run dev
 ```
-
