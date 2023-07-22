@@ -1,12 +1,12 @@
-import { ProductType } from "../Types/type";
-import { useNavigate } from "react-router-dom";
+import { ProductType } from "../Types/type"
+import { useNavigate } from "react-router-dom"
 
 export default function ProductInHomePage(props: ProductType) {
 
      const navigate = useNavigate()
 
      function viewDetailsPage(id: number) {
-          navigate(id.toString())
+          navigate(`products/${id.toString()}`)
      }
 
      return (

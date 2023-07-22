@@ -22,7 +22,7 @@ export function SimilarProducts({ category, id }: { category: string, id: number
           similarProducts?.map(
                (similarProduct: ProductType) => {
                     return (
-                         <NavLink key={similarProduct.id} to={`/${similarProduct.id}`} className="flex flex-col gap-2 items-center text-sm p-3 border-2 border-slate-200 hover:bg-slate-50 group duration-300">
+                         <NavLink key={similarProduct.id} to={`/products/${similarProduct.id}`} className="flex flex-col gap-2 items-center text-sm p-3 border-2 border-slate-200 hover:bg-slate-50 group duration-300">
                               <img src={similarProduct.image} alt="product-img" className="h-[7rem] object-cover group-hover:scale-[.90] duration-300" />
                               <h2 className="group-hover:underline duration-300">{similarProduct.title}</h2>
                          </NavLink>
