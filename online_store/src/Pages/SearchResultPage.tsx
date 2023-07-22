@@ -26,11 +26,11 @@ export function SearchResultPage() {
                {
                     isLoading
                          ? <LoadingHandler />
-                         : <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4">
-                              {
-                                   searchMatchedProducts?.length === 0
-                                        ? <h2> We are really sorry to inform you that the product you are searching is not available at our store.🙏🏼😔</h2 >
-                                        : searchMatchedProducts?.map(
+                         : searchMatchedProducts?.length === 0
+                              ? <h2> We are really sorry to inform you that the product you are searching is not available at our store.🙏🏼😔</h2 >
+                              : <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4">
+                                   {
+                                        searchMatchedProducts?.map(
                                              (searchMatchedProduct: ProductType) => {
                                                   return (
                                                        <NavLink key={searchMatchedProduct.id} to={`/products/${searchMatchedProduct.id}`} className="flex flex-col gap-2 items-center text-sm p-3 border-2 border-slate-200 hover:bg-slate-50 group duration-300">
@@ -40,8 +40,8 @@ export function SearchResultPage() {
                                                   )
                                              }
                                         )
-                              }
-                         </div>
+                                   }
+                              </div>
 
                }
           </div >
