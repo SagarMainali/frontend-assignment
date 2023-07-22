@@ -1,0 +1,16 @@
+@media screen and (max-width: 600px) {
+     .menu-toggler {
+          display: block !important;
+     }
+
+     .search {
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          inset: 0;
+          z-index: 99;
+          border-radius: 10px;
+          background-color: rgba(0, 28, 48, .8);
+     }
+}
