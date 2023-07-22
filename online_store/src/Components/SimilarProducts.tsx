@@ -1,5 +1,5 @@
 import { useGlobalContext } from "../StateManagement/context"
-import { ProductType } from "../Types/type"
+import { ProductType } from "../types/type"
 import { NavLink } from "react-router-dom"
 import { useEffect, useState } from 'react'
 

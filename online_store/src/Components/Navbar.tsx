@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { useGlobalContext } from '../StateManagement/context'
-import { ProductType } from '../Types/type'
+import { ProductType } from '../types/type'
 import '../Styles/responsive.css'
 import { useState, ChangeEvent } from 'react'
 import { useNavigate } from 'react-router-dom'

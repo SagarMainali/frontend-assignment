@@ -2,7 +2,7 @@ import ProductInHomePage from "../Components/ProductInHomePage"
 import { ErrorHandler } from "../StateHandelers/ErrorHandler"
 import { LoadingHandler } from "../StateHandelers/LoadingHandler"
 import { useGlobalContext } from "../StateManagement/context"
-import { ProductType } from "../Types/type"
+import { ProductType } from "../types/type"
 
 export function HomePage() {
 

@@ -1,6 +1,6 @@
 import { useGlobalContext } from '../StateManagement/context'
 import ProductInCart from '../Components/ProductInCart'
-import { ProductType } from '../Types/type'
+import { ProductType } from '../types/type'
 
 export function CartPage() {
 

@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useQuery } from "@tanstack/react-query"
-import { ProductType } from "../Types/type"
+import { ProductType } from "../types/type"
 
 const BASE_URL = 'https://fakestoreapi.com/products/'
 

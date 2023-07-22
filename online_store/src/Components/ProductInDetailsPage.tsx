@@ -1,5 +1,5 @@
 import { useGlobalContext } from "../StateManagement/context"
-import { ProductType } from "../Types/type"
+import { ProductType } from "../types/type"
 import { SimilarProducts } from "./SimilarProducts"
 
 export function ProductInDetailsPage(props: ProductType) {

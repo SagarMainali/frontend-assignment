@@ -1,4 +1,4 @@
-import { ProductType } from "../Types/type"
+import { ProductType } from "../types/type"
 import { useNavigate } from "react-router-dom"
 
 export default function ProductInHomePage(props: ProductType) {

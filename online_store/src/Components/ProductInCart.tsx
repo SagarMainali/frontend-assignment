@@ -1,5 +1,5 @@
 import { useGlobalContext } from "../StateManagement/context";
-import { ProductType } from "../Types/type";
+import { ProductType } from "../types/type";
 
 export default function ProductInCart({ id, image, title, cartQuantity, price }: ProductType) {
 

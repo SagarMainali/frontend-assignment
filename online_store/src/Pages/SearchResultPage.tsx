@@ -1,6 +1,6 @@
 import { NavLink, useParams } from "react-router-dom"
 import { useGlobalContext } from "../StateManagement/context"
-import { ProductType } from "../Types/type"
+import { ProductType } from "../types/type"
 import { useState, useEffect } from 'react'
 import { LoadingHandler } from "../StateHandelers/LoadingHandler"
 

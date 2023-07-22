@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react'
-import { ChildrenType, GlobalContextType, ProductType } from '../Types/type'
+import { ChildrenType, GlobalContextType, ProductType } from '../types/type'
 import { useApiWithReactQuery } from '../Utils/useApiWithReactQuery'
 
 const GlobalContext = createContext<GlobalContextType>({} as GlobalContextType)
