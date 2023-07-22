@@ -39,6 +39,8 @@ export function Navbar() {
 
   const [searchQuery, setSearchQuery] = useState<string>('')
 
+  const [emptyFiled, setEmptyField] = useState<boolean>(false)
+
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     const searchQuery = event.target.value
     setSearchQuery(searchQuery)
@@ -47,7 +49,13 @@ export function Navbar() {
   const navigate = useNavigate()
 
   function viewSearchResultPage(productName: string) {
-    navigate(`search_results/${productName}`)
+    if (productName.length > 0) {
+      setEmptyField(false)
+      navigate(`search_results/${productName}`)
+    }
+    else {
+      setEmptyField(true)
+    }
   }
 
   return (
@@ -60,16 +68,19 @@ export function Navbar() {
 
       <div className='flex items-center gap-4'>
         {/* search box */}
-        <div className={`search duration-300 flex gap-4 sm:translate-x-0 -translate-x-[100%] ${menuTogglerActive ? 'translate-x-0' : ''}`}>
+        <div className={`search duration-300 flex gap-5 sm:translate-x-0 -translate-x-[100%] ${menuTogglerActive ? 'translate-x-0' : ''}`}>
           <div className='rounded-lg w-[14rem] h-[36px] overflow-hidden flex'>
             <input type="text" onChange={handleChange} placeholder="Search..." className="w-[85%] rounded-l-lg outline-0 border-2 border-slate-300 bg-slate-100 text-primary-dark text-sm caret-bg-primary px-4 placeholder:text-primary-dark placeholder:text-sm" />
+            {
+              emptyFiled && <p className='absolute left-2 -bottom-[1rem] text-xs text-red-600'>*Empty Field*</p>
+            }
             <button className="w-[15%] h-full bg-slate-300" onClick={() => viewSearchResultPage(searchQuery)}>
               <svg className="w-full md:h-[1.2rem] h-[1rem]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#001C30">
                 <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
               </svg>
             </button>
           </div>
-          <svg className='fill-slate-200 cursor-pointer' xmlns="http://www.w3.org/2000/svg" height="1.5rem" viewBox="0 0 384 512" onClick={changeMenuTogglerState}>
+          <svg className='fill-slate-200 cursor-pointer sm:hidden' xmlns="http://www.w3.org/2000/svg" height="1.5rem" viewBox="0 0 384 512" onClick={changeMenuTogglerState}>
             <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
           </svg>
         </div>
