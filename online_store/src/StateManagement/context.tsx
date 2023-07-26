@@ -53,7 +53,7 @@ export const GlobalContextProvider = ({ children }: ChildrenType) => {
                (currentProductsInCart: ProductType[]) => {
                     return currentProductsInCart.filter(
                          (currentProductInCart: ProductType) => {
-                              currentProductInCart.id === id
+                              return currentProductInCart.id !== id
                          }
                     )
                }
